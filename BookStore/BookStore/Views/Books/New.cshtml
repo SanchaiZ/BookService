@@ -1,0 +1,71 @@
+﻿@{
+    Layout = "~/Views/Shared/_LayoutNew.cshtml";
+}
+@{
+    ViewBag.Title = "NewBook";
+}
+<h1>New Book</h1>
+<br />
+@using (Html.BeginForm("Save", "Books", FormMethod.Post))
+{
+    <table>
+        <tr>
+            <td>
+                <b>ISBN-10  </b>
+            </td>
+            <td>
+                :  @Html.TextBox("isbn10", "")
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <b>ISBN-13  </b>
+            </td>
+            <td>
+                :  @Html.TextBox("isbn13", "")
+            </td>
+        </tr>
+    <tr>
+        <td>
+            <b>Title  </b>
+        </td>
+        <td>
+            :  @Html.TextBox("title", "")
+        </td>
+    </tr>
+        <tr>
+            <td>
+                <b>Author  </b>
+            </td>
+            <td>
+                :  @Html.TextBox("author", "")
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <b>Year  </b>
+            </td>
+            <td>
+                :  @Html.TextBox("year", "")
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <b>Category  </b>
+            </td>
+            <td>
+                :  @Html.TextBox("category", "")
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <b>Price  </b>
+            </td>
+            <td>
+                :  @Html.TextBox("price", "")
+            </td>
+        </tr>
+    </table>
+    <input type="submit" id="Save" value="Save" />
+    }
+

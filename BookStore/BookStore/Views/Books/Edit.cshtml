@@ -1,0 +1,27 @@
+﻿@{
+    Layout = "~/Views/Shared/_LayoutNew.cshtml";
+}
+
+
+    <h1>Edit ID : @ViewBag.id</h1>
+
+    @using (Html.BeginForm("Update", "Books", new { id = @ViewBag.id }, FormMethod.Post))
+    {
+        <table>
+            <tr>
+                <td>
+                    AttributeName
+                </td>
+                <td>
+                    :  @Html.TextBox("name", "")
+                </td>
+            </tr>
+            <tr>
+                <td>AttributeValue</td>
+                <td>
+                    :  @Html.TextBox("value", "")
+                </td>
+            </tr>
+        </table>
+        <input type="submit" id="Update" value="update" />
+    }

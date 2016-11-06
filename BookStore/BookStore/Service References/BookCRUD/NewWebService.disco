@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<discovery xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.xmlsoap.org/disco/">
+  <contractRef ref="http://ec2-54-169-24-185.ap-southeast-1.compute.amazonaws.com:8000/NewWebService.asmx?wsdl" docRef="http://ec2-54-169-24-185.ap-southeast-1.compute.amazonaws.com:8000/NewWebService.asmx" xmlns="http://schemas.xmlsoap.org/disco/scl/" />
+  <soap address="http://ec2-54-169-24-185.ap-southeast-1.compute.amazonaws.com:8000/NewWebService.asmx" xmlns:q1="http://follow-me.com/" binding="q1:BookCRUDSoap" xmlns="http://schemas.xmlsoap.org/disco/soap/" />
+  <soap address="http://ec2-54-169-24-185.ap-southeast-1.compute.amazonaws.com:8000/NewWebService.asmx" xmlns:q2="http://follow-me.com/" binding="q2:BookCRUDSoap12" xmlns="http://schemas.xmlsoap.org/disco/soap/" />
+</discovery>

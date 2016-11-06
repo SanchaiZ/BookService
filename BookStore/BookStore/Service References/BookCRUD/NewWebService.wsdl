@@ -1,0 +1,925 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://follow-me.com/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://follow-me.com/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://follow-me.com/">
+      <s:element name="Load">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="path" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LoadResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="LoadResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Read">
+        <s:complexType />
+      </s:element>
+      <s:element name="ReadResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ReadResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ReadByID">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ReadByIDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ReadByIDResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ABC">
+        <s:complexType />
+      </s:element>
+      <s:element name="ABCResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ABCResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Hi">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="title" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="price" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="author" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="year" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="category" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ISBN_10" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ISBN_13" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="HiResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="HiResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Update_Element">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="ElementName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ElementValue" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Update_ElementResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Update_ElementResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Update">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UpdateResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Delete">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DeleteResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Length">
+        <s:complexType />
+      </s:element>
+      <s:element name="LengthResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="LengthResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Save">
+        <s:complexType />
+      </s:element>
+      <s:element name="SaveResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SaveResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Search_price">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="low" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="high" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Search_priceResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Search_priceResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="anyType" nillable="true" />
+      <s:element name="int" type="s:int" />
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="LoadSoapIn">
+    <wsdl:part name="parameters" element="tns:Load" />
+  </wsdl:message>
+  <wsdl:message name="LoadSoapOut">
+    <wsdl:part name="parameters" element="tns:LoadResponse" />
+  </wsdl:message>
+  <wsdl:message name="ReadSoapIn">
+    <wsdl:part name="parameters" element="tns:Read" />
+  </wsdl:message>
+  <wsdl:message name="ReadSoapOut">
+    <wsdl:part name="parameters" element="tns:ReadResponse" />
+  </wsdl:message>
+  <wsdl:message name="ReadByIDSoapIn">
+    <wsdl:part name="parameters" element="tns:ReadByID" />
+  </wsdl:message>
+  <wsdl:message name="ReadByIDSoapOut">
+    <wsdl:part name="parameters" element="tns:ReadByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="ABCSoapIn">
+    <wsdl:part name="parameters" element="tns:ABC" />
+  </wsdl:message>
+  <wsdl:message name="ABCSoapOut">
+    <wsdl:part name="parameters" element="tns:ABCResponse" />
+  </wsdl:message>
+  <wsdl:message name="HiSoapIn">
+    <wsdl:part name="parameters" element="tns:Hi" />
+  </wsdl:message>
+  <wsdl:message name="HiSoapOut">
+    <wsdl:part name="parameters" element="tns:HiResponse" />
+  </wsdl:message>
+  <wsdl:message name="Update_ElementSoapIn">
+    <wsdl:part name="parameters" element="tns:Update_Element" />
+  </wsdl:message>
+  <wsdl:message name="Update_ElementSoapOut">
+    <wsdl:part name="parameters" element="tns:Update_ElementResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateSoapIn">
+    <wsdl:part name="parameters" element="tns:Update" />
+  </wsdl:message>
+  <wsdl:message name="UpdateSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteSoapIn">
+    <wsdl:part name="parameters" element="tns:Delete" />
+  </wsdl:message>
+  <wsdl:message name="DeleteSoapOut">
+    <wsdl:part name="parameters" element="tns:DeleteResponse" />
+  </wsdl:message>
+  <wsdl:message name="LengthSoapIn">
+    <wsdl:part name="parameters" element="tns:Length" />
+  </wsdl:message>
+  <wsdl:message name="LengthSoapOut">
+    <wsdl:part name="parameters" element="tns:LengthResponse" />
+  </wsdl:message>
+  <wsdl:message name="SaveSoapIn">
+    <wsdl:part name="parameters" element="tns:Save" />
+  </wsdl:message>
+  <wsdl:message name="SaveSoapOut">
+    <wsdl:part name="parameters" element="tns:SaveResponse" />
+  </wsdl:message>
+  <wsdl:message name="Search_priceSoapIn">
+    <wsdl:part name="parameters" element="tns:Search_price" />
+  </wsdl:message>
+  <wsdl:message name="Search_priceSoapOut">
+    <wsdl:part name="parameters" element="tns:Search_priceResponse" />
+  </wsdl:message>
+  <wsdl:message name="LoadHttpGetIn">
+    <wsdl:part name="path" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="LoadHttpGetOut">
+    <wsdl:part name="Body" element="tns:anyType" />
+  </wsdl:message>
+  <wsdl:message name="ReadHttpGetIn" />
+  <wsdl:message name="ReadHttpGetOut">
+    <wsdl:part name="Body" element="tns:anyType" />
+  </wsdl:message>
+  <wsdl:message name="ReadByIDHttpGetIn">
+    <wsdl:part name="ID" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ReadByIDHttpGetOut">
+    <wsdl:part name="Body" element="tns:anyType" />
+  </wsdl:message>
+  <wsdl:message name="ABCHttpGetIn" />
+  <wsdl:message name="ABCHttpGetOut">
+    <wsdl:part name="Body" element="tns:anyType" />
+  </wsdl:message>
+  <wsdl:message name="HiHttpGetIn">
+    <wsdl:part name="title" type="s:string" />
+    <wsdl:part name="price" type="s:string" />
+    <wsdl:part name="author" type="s:string" />
+    <wsdl:part name="year" type="s:string" />
+    <wsdl:part name="category" type="s:string" />
+    <wsdl:part name="ISBN_10" type="s:string" />
+    <wsdl:part name="ISBN_13" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="HiHttpGetOut">
+    <wsdl:part name="Body" element="tns:anyType" />
+  </wsdl:message>
+  <wsdl:message name="Update_ElementHttpGetIn">
+    <wsdl:part name="ID" type="s:string" />
+    <wsdl:part name="ElementName" type="s:string" />
+    <wsdl:part name="ElementValue" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="Update_ElementHttpGetOut">
+    <wsdl:part name="Body" element="tns:anyType" />
+  </wsdl:message>
+  <wsdl:message name="UpdateHttpGetIn">
+    <wsdl:part name="ID" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="UpdateHttpGetOut">
+    <wsdl:part name="Body" element="tns:anyType" />
+  </wsdl:message>
+  <wsdl:message name="DeleteHttpGetIn">
+    <wsdl:part name="id" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="DeleteHttpGetOut">
+    <wsdl:part name="Body" element="tns:anyType" />
+  </wsdl:message>
+  <wsdl:message name="LengthHttpGetIn" />
+  <wsdl:message name="LengthHttpGetOut">
+    <wsdl:part name="Body" element="tns:int" />
+  </wsdl:message>
+  <wsdl:message name="SaveHttpGetIn" />
+  <wsdl:message name="SaveHttpGetOut">
+    <wsdl:part name="Body" element="tns:anyType" />
+  </wsdl:message>
+  <wsdl:message name="Search_priceHttpGetIn">
+    <wsdl:part name="low" type="s:string" />
+    <wsdl:part name="high" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="Search_priceHttpGetOut">
+    <wsdl:part name="Body" element="tns:anyType" />
+  </wsdl:message>
+  <wsdl:message name="LoadHttpPostIn">
+    <wsdl:part name="path" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="LoadHttpPostOut">
+    <wsdl:part name="Body" element="tns:anyType" />
+  </wsdl:message>
+  <wsdl:message name="ReadHttpPostIn" />
+  <wsdl:message name="ReadHttpPostOut">
+    <wsdl:part name="Body" element="tns:anyType" />
+  </wsdl:message>
+  <wsdl:message name="ReadByIDHttpPostIn">
+    <wsdl:part name="ID" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ReadByIDHttpPostOut">
+    <wsdl:part name="Body" element="tns:anyType" />
+  </wsdl:message>
+  <wsdl:message name="ABCHttpPostIn" />
+  <wsdl:message name="ABCHttpPostOut">
+    <wsdl:part name="Body" element="tns:anyType" />
+  </wsdl:message>
+  <wsdl:message name="HiHttpPostIn">
+    <wsdl:part name="title" type="s:string" />
+    <wsdl:part name="price" type="s:string" />
+    <wsdl:part name="author" type="s:string" />
+    <wsdl:part name="year" type="s:string" />
+    <wsdl:part name="category" type="s:string" />
+    <wsdl:part name="ISBN_10" type="s:string" />
+    <wsdl:part name="ISBN_13" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="HiHttpPostOut">
+    <wsdl:part name="Body" element="tns:anyType" />
+  </wsdl:message>
+  <wsdl:message name="Update_ElementHttpPostIn">
+    <wsdl:part name="ID" type="s:string" />
+    <wsdl:part name="ElementName" type="s:string" />
+    <wsdl:part name="ElementValue" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="Update_ElementHttpPostOut">
+    <wsdl:part name="Body" element="tns:anyType" />
+  </wsdl:message>
+  <wsdl:message name="UpdateHttpPostIn">
+    <wsdl:part name="ID" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="UpdateHttpPostOut">
+    <wsdl:part name="Body" element="tns:anyType" />
+  </wsdl:message>
+  <wsdl:message name="DeleteHttpPostIn">
+    <wsdl:part name="id" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="DeleteHttpPostOut">
+    <wsdl:part name="Body" element="tns:anyType" />
+  </wsdl:message>
+  <wsdl:message name="LengthHttpPostIn" />
+  <wsdl:message name="LengthHttpPostOut">
+    <wsdl:part name="Body" element="tns:int" />
+  </wsdl:message>
+  <wsdl:message name="SaveHttpPostIn" />
+  <wsdl:message name="SaveHttpPostOut">
+    <wsdl:part name="Body" element="tns:anyType" />
+  </wsdl:message>
+  <wsdl:message name="Search_priceHttpPostIn">
+    <wsdl:part name="low" type="s:string" />
+    <wsdl:part name="high" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="Search_priceHttpPostOut">
+    <wsdl:part name="Body" element="tns:anyType" />
+  </wsdl:message>
+  <wsdl:portType name="BookCRUDSoap">
+    <wsdl:operation name="Load">
+      <wsdl:input message="tns:LoadSoapIn" />
+      <wsdl:output message="tns:LoadSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Read">
+      <wsdl:input message="tns:ReadSoapIn" />
+      <wsdl:output message="tns:ReadSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ReadByID">
+      <wsdl:input message="tns:ReadByIDSoapIn" />
+      <wsdl:output message="tns:ReadByIDSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Insert">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Default no parameter for test case</wsdl:documentation>
+      <wsdl:input name="ABC" message="tns:ABCSoapIn" />
+      <wsdl:output name="ABC" message="tns:ABCSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertAll">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Insert Element</wsdl:documentation>
+      <wsdl:input name="Hi" message="tns:HiSoapIn" />
+      <wsdl:output name="Hi" message="tns:HiSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Update_Element">
+      <wsdl:input message="tns:Update_ElementSoapIn" />
+      <wsdl:output message="tns:Update_ElementSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Update">
+      <wsdl:input message="tns:UpdateSoapIn" />
+      <wsdl:output message="tns:UpdateSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Delete">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Remove Book form Bookstore</wsdl:documentation>
+      <wsdl:input message="tns:DeleteSoapIn" />
+      <wsdl:output message="tns:DeleteSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Length">
+      <wsdl:input message="tns:LengthSoapIn" />
+      <wsdl:output message="tns:LengthSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Save">
+      <wsdl:input message="tns:SaveSoapIn" />
+      <wsdl:output message="tns:SaveSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Search_price">
+      <wsdl:input message="tns:Search_priceSoapIn" />
+      <wsdl:output message="tns:Search_priceSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="BookCRUDHttpGet">
+    <wsdl:operation name="Load">
+      <wsdl:input message="tns:LoadHttpGetIn" />
+      <wsdl:output message="tns:LoadHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Read">
+      <wsdl:input message="tns:ReadHttpGetIn" />
+      <wsdl:output message="tns:ReadHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ReadByID">
+      <wsdl:input message="tns:ReadByIDHttpGetIn" />
+      <wsdl:output message="tns:ReadByIDHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Insert">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Default no parameter for test case</wsdl:documentation>
+      <wsdl:input name="ABC" message="tns:ABCHttpGetIn" />
+      <wsdl:output name="ABC" message="tns:ABCHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertAll">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Insert Element</wsdl:documentation>
+      <wsdl:input name="Hi" message="tns:HiHttpGetIn" />
+      <wsdl:output name="Hi" message="tns:HiHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Update_Element">
+      <wsdl:input message="tns:Update_ElementHttpGetIn" />
+      <wsdl:output message="tns:Update_ElementHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Update">
+      <wsdl:input message="tns:UpdateHttpGetIn" />
+      <wsdl:output message="tns:UpdateHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Delete">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Remove Book form Bookstore</wsdl:documentation>
+      <wsdl:input message="tns:DeleteHttpGetIn" />
+      <wsdl:output message="tns:DeleteHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Length">
+      <wsdl:input message="tns:LengthHttpGetIn" />
+      <wsdl:output message="tns:LengthHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Save">
+      <wsdl:input message="tns:SaveHttpGetIn" />
+      <wsdl:output message="tns:SaveHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Search_price">
+      <wsdl:input message="tns:Search_priceHttpGetIn" />
+      <wsdl:output message="tns:Search_priceHttpGetOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="BookCRUDHttpPost">
+    <wsdl:operation name="Load">
+      <wsdl:input message="tns:LoadHttpPostIn" />
+      <wsdl:output message="tns:LoadHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Read">
+      <wsdl:input message="tns:ReadHttpPostIn" />
+      <wsdl:output message="tns:ReadHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ReadByID">
+      <wsdl:input message="tns:ReadByIDHttpPostIn" />
+      <wsdl:output message="tns:ReadByIDHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Insert">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Default no parameter for test case</wsdl:documentation>
+      <wsdl:input name="ABC" message="tns:ABCHttpPostIn" />
+      <wsdl:output name="ABC" message="tns:ABCHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertAll">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Insert Element</wsdl:documentation>
+      <wsdl:input name="Hi" message="tns:HiHttpPostIn" />
+      <wsdl:output name="Hi" message="tns:HiHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Update_Element">
+      <wsdl:input message="tns:Update_ElementHttpPostIn" />
+      <wsdl:output message="tns:Update_ElementHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Update">
+      <wsdl:input message="tns:UpdateHttpPostIn" />
+      <wsdl:output message="tns:UpdateHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Delete">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Remove Book form Bookstore</wsdl:documentation>
+      <wsdl:input message="tns:DeleteHttpPostIn" />
+      <wsdl:output message="tns:DeleteHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Length">
+      <wsdl:input message="tns:LengthHttpPostIn" />
+      <wsdl:output message="tns:LengthHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Save">
+      <wsdl:input message="tns:SaveHttpPostIn" />
+      <wsdl:output message="tns:SaveHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Search_price">
+      <wsdl:input message="tns:Search_priceHttpPostIn" />
+      <wsdl:output message="tns:Search_priceHttpPostOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BookCRUDSoap" type="tns:BookCRUDSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Load">
+      <soap:operation soapAction="http://follow-me.com/Load" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Read">
+      <soap:operation soapAction="http://follow-me.com/Read" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReadByID">
+      <soap:operation soapAction="http://follow-me.com/ReadByID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Insert">
+      <soap:operation soapAction="http://follow-me.com/ABC" style="document" />
+      <wsdl:input name="ABC">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="ABC">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertAll">
+      <soap:operation soapAction="http://follow-me.com/Hi" style="document" />
+      <wsdl:input name="Hi">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="Hi">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Update_Element">
+      <soap:operation soapAction="http://follow-me.com/Update_Element" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Update">
+      <soap:operation soapAction="http://follow-me.com/Update" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Delete">
+      <soap:operation soapAction="http://follow-me.com/Delete" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Length">
+      <soap:operation soapAction="http://follow-me.com/Length" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Save">
+      <soap:operation soapAction="http://follow-me.com/Save" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Search_price">
+      <soap:operation soapAction="http://follow-me.com/Search_price" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="BookCRUDSoap12" type="tns:BookCRUDSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Load">
+      <soap12:operation soapAction="http://follow-me.com/Load" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Read">
+      <soap12:operation soapAction="http://follow-me.com/Read" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReadByID">
+      <soap12:operation soapAction="http://follow-me.com/ReadByID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Insert">
+      <soap12:operation soapAction="http://follow-me.com/ABC" style="document" />
+      <wsdl:input name="ABC">
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="ABC">
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertAll">
+      <soap12:operation soapAction="http://follow-me.com/Hi" style="document" />
+      <wsdl:input name="Hi">
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="Hi">
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Update_Element">
+      <soap12:operation soapAction="http://follow-me.com/Update_Element" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Update">
+      <soap12:operation soapAction="http://follow-me.com/Update" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Delete">
+      <soap12:operation soapAction="http://follow-me.com/Delete" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Length">
+      <soap12:operation soapAction="http://follow-me.com/Length" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Save">
+      <soap12:operation soapAction="http://follow-me.com/Save" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Search_price">
+      <soap12:operation soapAction="http://follow-me.com/Search_price" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="BookCRUDHttpGet" type="tns:BookCRUDHttpGet">
+    <http:binding verb="GET" />
+    <wsdl:operation name="Load">
+      <http:operation location="/Load" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Read">
+      <http:operation location="/Read" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReadByID">
+      <http:operation location="/ReadByID" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Insert">
+      <http:operation location="/ABC" />
+      <wsdl:input name="ABC">
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output name="ABC">
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertAll">
+      <http:operation location="/Hi" />
+      <wsdl:input name="Hi">
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output name="Hi">
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Update_Element">
+      <http:operation location="/Update_Element" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Update">
+      <http:operation location="/Update" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Delete">
+      <http:operation location="/Delete" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Length">
+      <http:operation location="/Length" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Save">
+      <http:operation location="/Save" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Search_price">
+      <http:operation location="/Search_price" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="BookCRUDHttpPost" type="tns:BookCRUDHttpPost">
+    <http:binding verb="POST" />
+    <wsdl:operation name="Load">
+      <http:operation location="/Load" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Read">
+      <http:operation location="/Read" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReadByID">
+      <http:operation location="/ReadByID" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Insert">
+      <http:operation location="/ABC" />
+      <wsdl:input name="ABC">
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output name="ABC">
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertAll">
+      <http:operation location="/Hi" />
+      <wsdl:input name="Hi">
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output name="Hi">
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Update_Element">
+      <http:operation location="/Update_Element" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Update">
+      <http:operation location="/Update" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Delete">
+      <http:operation location="/Delete" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Length">
+      <http:operation location="/Length" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Save">
+      <http:operation location="/Save" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Search_price">
+      <http:operation location="/Search_price" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="BookCRUD">
+    <wsdl:port name="BookCRUDSoap" binding="tns:BookCRUDSoap">
+      <soap:address location="http://ec2-54-169-24-185.ap-southeast-1.compute.amazonaws.com:8000/NewWebService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="BookCRUDSoap12" binding="tns:BookCRUDSoap12">
+      <soap12:address location="http://ec2-54-169-24-185.ap-southeast-1.compute.amazonaws.com:8000/NewWebService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="BookCRUDHttpGet" binding="tns:BookCRUDHttpGet">
+      <http:address location="http://ec2-54-169-24-185.ap-southeast-1.compute.amazonaws.com:8000/NewWebService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="BookCRUDHttpPost" binding="tns:BookCRUDHttpPost">
+      <http:address location="http://ec2-54-169-24-185.ap-southeast-1.compute.amazonaws.com:8000/NewWebService.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
